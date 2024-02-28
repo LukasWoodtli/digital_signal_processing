@@ -39,7 +39,7 @@ http://dspguide.com/
 | 27      | Data Compression                  | CH27.pdf |    22 |      |
 | 28      | Digital Signal Processors         | CH28.pdf |    32 |      |
 | 29      | Getting Started with DSPs         | CH29.pdf |    16 |      |
-| 30      | Complex Numbers                   | CH30.pdf |    16 |      |
+| 30      | Complex Numbers                   | CH30.pdf |    16 |   ✓  |
 | 31      | The Complex Fourier Transform     | CH31.pdf |    14 |      |
 | 32      | The Laplace Transform             | CH32.pdf |    24 |      |
 | 33      | The z-Transform                   | CH33.pdf |    26 |      |

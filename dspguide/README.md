@@ -15,7 +15,7 @@ http://dspguide.com/
 | 3       | ADC and DAC                       | CH3.pdf  |    32 |      |
 | 4       | DSP Software                      | CH4.pdf  |    20 |   ✓  |
 | 5       | Linear Systems                    | CH5.pdf  |    20 |   ✓  |
-| 6       | Convolution                       | CH6.pdf  |    16 |      |
+| 6       | Convolution                       | CH6.pdf  |    16 |   ✓  |
 | 7       | Properties of Convolution         | CH7.pdf  |    18 |      |
 | 8       | The Discrete Fourier Transform    | CH8.pdf  |    28 |   ✓  |
 | 9       | Applications of the DFT           | CH9.pdf  |    16 |      |

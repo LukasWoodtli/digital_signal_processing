@@ -21,6 +21,63 @@ def test_leaky_integrator():
     dlti = scipy.signal.dlti(b, a)
     plot_dlti(dlti, "Leaky integrator")
 
+def test_ccde():
+    # y[n]+2y[n−1]=3 x[n]+2.5 x[n−1]
+    # H(z) = (1 + 2 * z^-1)/(3 + 2.5* z^-1)
+    # = (z + 2)/(3z + 2.5)
+    b = [1, 2]
+    a = [3, 2.5]
+
+    dlti = scipy.signal.dlti(b, a)
+    plot_dlti(dlti, "CCDE")
+
+
+def test_sim():
+    # y[n]+2y[n−1]=x[n+1]−1/2x[n]
+    # H(z) = (1 + 2*z^-1)/(1*z - 1/2)
+    # = (z + 2)/(z^2 - 1/2*z)
+    b = [0, 1, 2]
+    a = [1, -0.5, 0]
+
+    dlti = scipy.signal.dlti(b, a)
+
+    input = scipy.signal.unit_impulse(200)
+    input += scipy.signal.unit_impulse(200, idx=1) * 0.5
+    t, y = scipy.signal.dlsim(dlti, input)
+
+    plot_dlti(dlti, "sim")
+
+def test_resonator():
+    lmbd = 0.9
+    omg_0 = np.pi / 3.0
+    G_0 = 0.1
+
+    a_1 = 2 * lmbd * np.cos(omg_0)
+    a_2 = -(np.abs(lmbd))**2
+
+    b = [G_0, 0, 0]
+    a = [1, -a_1, -a_2]
+    dlti = scipy.signal.dlti(b, a)
+    plot_dlti(dlti, "resonator")
+
+
+def test_remez():
+    passband_begin = 0
+    passband_end = 0.4
+    stopband_begin = 0.6
+    stopband_end = 1
+
+    taps = 17
+    bands = np.array([passband_begin, passband_end, stopband_begin, stopband_end]) / 2
+    fir_coeff = scipy.signal.remez(taps, bands, [1, 0])
+    den = np.zeros(len(fir_coeff))
+    den[0] = 1.0
+
+    dlti = scipy.signal.dlti(fir_coeff, den)
+
+    plot_dlti(dlti, "remez")
+
+
 
 def plot_dlti(dlti, name):
     all_fig = plt.figure(layout="constrained")
@@ -30,13 +87,22 @@ def plot_dlti(dlti, name):
     w = np.linspace(-np.pi, np.pi, 100)
     w2, h2 = dlti.freqresp(w=w)
     freq_resp_grid_spec = gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=all_grid_spec[0])
+    def set_axes_labels_pi(ax):
+        ax.set_xticks(np.arange(-np.pi - 0.01, np.pi + 0.01, np.pi / 2))
+        labels = [r'$-\pi$', r'$-\pi/2$', '$0$',r'$\pi/2$', r'$\pi$']
+        ax.set_xticklabels(labels)
+
     ax1 = all_fig.add_subplot(freq_resp_grid_spec[0, 0])
     ax1.set(title='Frequency Response')
     ax1.plot(w2, np.abs(h2))
     ax1.grid(True)
+    set_axes_labels_pi(ax1)
+    # phase resp.
     ax2 = all_fig.add_subplot(freq_resp_grid_spec[1, 0])
     ax2.plot(w2, np.angle(h2))
     ax2.grid(True)
+    set_axes_labels_pi(ax2)
+    ax2.set_ylim(-np.pi, np.pi)
 
     # poles-zeroes plot
     # inspired by:

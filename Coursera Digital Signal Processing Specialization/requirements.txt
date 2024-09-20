@@ -115,5 +115,5 @@ webencodings==0.5.1
 websocket-client==1.7.0
 widgetsnbextension==4.0.10
 zipp==3.17.0
-
+scikit-commpy==0.8.0
 imageio~=2.34.2

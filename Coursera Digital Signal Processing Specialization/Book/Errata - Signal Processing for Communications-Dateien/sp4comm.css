@@ -1,0 +1,246 @@
+/*************************************************************************/
+/* General                                                               */
+/*************************************************************************/
+
+/* Colors: 
+  #a4a6a9 -- gray, navigation menus
+  #1c4176 -- blue, active tab, links
+  #687b98 -- blue-gray, subtitles (h3)
+  #ca5050 -- red
+  #F3F3F3 -- gray page margin background
+*/
+
+
+* {
+  padding: 0; 
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #EEA765;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+html, body {
+	height: 100%;
+	background: #333333;
+	color: #FFFFFF;
+}
+
+body {
+	color: #FFFFFF;
+  font-family: 'Trebuchet MS',Helvetica,sans-serif;
+  font-size: 0.8em;	
+}
+  
+.clear {
+ 	clear: both;
+}
+  
+.spacer {
+  height: 1em;
+}
+
+.centered {
+  text-align: center;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.corr {
+  font-weight: bold;
+	font-style: italic;
+}
+.err {
+  text-decoration: line-through;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  padding-bottom: 20px;
+  background: #333333 url(../img/spcback.gif) repeat-y; 	
+}
+
+#footer, #push {
+  height: 4em;
+}
+
+/*************************************************************************/
+/* Header, image & title                                                 */
+/*************************************************************************/
+#spcTitle {
+  padding-top: 20px;
+  margin-left: 180px;
+  height: 80px;
+  width: 100%;
+  color: #EEA765;
+  background-color: #333333;
+  z-index: 5;
+}
+
+#spcTitle h1 {
+  font-variant: small-caps;
+  font-weight: normal;
+}
+#spcTitle h2 {
+  font-weight: normal;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+#spcMainImg {
+  position: absolute;
+  top: 30px;
+  left: 53px;
+}
+
+#spcDonate {
+  position: absolute;
+  overflow: hidden;
+  top: 450px;
+  left: 60px;
+}
+#spcDonateFix {
+  position: fixed;
+  overflow: hidden;
+  bottom: 10px;
+  left: 60px;
+}
+
+
+.spcBanner {
+  padding-top: 5px;
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 150%;
+  color: #EEA765;
+}
+
+.spcBanner a img,
+h2 a img {
+  vertical-align: middle;
+}
+/*************************************************************************/
+/* Main page                                                             */
+/*************************************************************************/
+#spcTitle.idx {
+  padding: 0;
+  margin: 0;
+  margin-top: 100px;
+  height: auto;
+  text-align: center;
+}
+#spcIndexImg {
+  margin-left: 200px;
+  float: left;
+}
+#spcIndexContent {
+  text-align: center;
+  margin: 20px 10px 20px 10px;
+  padding: 20px;
+  background: black;
+}
+#spcIndexBox {
+  float: left;
+  width: 400px;
+  text-align: justify;
+  padding: 20px 20px 20px 20px;
+}
+
+.spacer {
+	min-height: 40px;
+}
+
+/*************************************************************************/
+/* Menu bar                                                              */
+/*************************************************************************/
+
+#spcMenu {
+  font-variant: small-caps;
+  background: black;
+  font-size: 120%;
+  height: 30px;
+  color: #227BBF;
+}
+#spcMenu.idx {
+  text-align: center;
+  background: transparent;
+  margin-left: -180px;
+}
+#spcMenu a {
+  color: #227BBF;
+}
+#spcMenu ul {
+  padding-top: 6px;
+  margin-left: 180px;
+  list-style-type: none;
+}
+#spcMenu li {
+	display: inline;
+	margin-right: 15px;
+	padding-right: 15px;
+  border-right: 1px solid #227BBF;
+}
+#spcMenu li.last {
+  border: none;
+}
+#spcMenu li.current {
+  text-decoration: underline;
+}
+
+#spcMenu.spcIndex {
+  font-variant: small-caps;
+  font-size: 120%;
+  color: #227BBF;
+}
+
+/*************************************************************************/
+/* Main content                                                          */
+/*************************************************************************/
+
+
+#spcContent {
+  margin: 25px 150px 0 180px ;
+  text-align: justify;
+}
+
+#spcContent h1 {
+  font-variant: small-caps;
+  color: #227BBF;
+}
+#spcContent h2 {
+  margin-top: 30px;
+  color: #EEA765;
+}
+
+#spcContent ul {
+  margin-top: 8px;
+  margin-left: 40px;
+}
+#spcContent ol {
+  margin-top: 8px;
+  margin-left: 40px;
+}
+#spcContent p {
+  margin-bottom: 15px;
+}
+
+#spcContent.spcIndex {
+  background: black;
+  margin: 0;
+}
+#spcContentBox.spcIndex {
+  width: 400px;
+  margin-left: 200px;
+}
+
